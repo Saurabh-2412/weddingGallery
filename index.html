@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +47,6 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-      padding: 20px;
     }
 
     .gallery-column {
@@ -82,33 +82,33 @@
     }
 
     .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-        overflow: auto;
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      overflow: auto;
     }
 
     .modal-content {
-        max-width: 80%;
-        max-height: 80%;
-        padding: 20px; /* Add padding on all sides */
-        box-sizing: border-box;
+      max-width: 80%;
+      max-height: 80%;
+      padding: 20px; /* Add padding on all sides */
+      box-sizing: border-box;
     }
 
     .close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        color: #fff;
-        font-size: 20px;
-        cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
     }
 
 
@@ -133,20 +133,20 @@
       margin-top: 20px;
     }
     @media screen and (max-width: 800px) {
-    .column {
-        -ms-flex: 50%;
-        flex: 50%;
-        max-width: 50%;
-    }
+      .column {
+          -ms-flex: 50%;
+          flex: 50%;
+          max-width: 50%;
+      }
     }
 
     /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
     @media screen and (max-width: 600px) {
-    .column {
-        -ms-flex: 100%;
-        flex: 100%;
-        max-width: 100%;
-    }
+      .column {
+          -ms-flex: 100%;
+          flex: 100%;
+          max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -298,8 +298,8 @@
   <img class="modal-content" id="modalImage">
 </div>
 
-<!-- <input type="file" id="fileInput" multiple>
-<label for="fileInput">Upload Images</label> -->
+<input type="file" id="fileInput" multiple>
+<label for="fileInput">Upload Images</label>
 
 <script>
     let currentIndex = 0;
