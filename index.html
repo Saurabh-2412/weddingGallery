@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-63LFG8qZ1FaZ9iN2XwAAib9ti7h/Ctb6j0n58F2l0/1+1fCpWjwsDg18dLV8P78l5Q/MVF1uqPGs2h3XPoA4Ig==" crossorigin="anonymous" />
   <title>Super Attractive Website</title>
   <style>
     body {
@@ -184,12 +185,27 @@
       text-align: left;
       outline: none;
       font-size: 15px;
-      transition: 0.4s;
-      border-radius: 20px solid black;
+      transition: background-color 0.3s, box-shadow 0.3s;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center; /* Center icon vertically */
     }
 
-    .active, .accordion:hover {
-      background-color: #ccc; 
+    .accordion:hover {
+      background-color: #f2f2f2; /* Lighter background on hover */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow on hover */
+    }
+
+    .accordion i {
+      margin-right: 10px;
+      font-size: 14px;
+      transition: transform 0.3s; /* Icon rotation on click */
+      display: inline-block;
+    }
+
+    .active i {
+      transform: rotate(90deg); /* Rotate the icon on click */
     }
 
     .panel {
@@ -197,6 +213,9 @@
       display: none;
       background-color: white;
       overflow: hidden;
+      border-radius: 0 0 20px 20px; /* Rounded bottom corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.5s ease-in-out; /* Add fade-in animation */
     }
 
     @media screen and (max-height: 450px) {
@@ -222,6 +241,15 @@
           -ms-flex: 100%;
           flex: 100%;
           max-width: 100%;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
       }
     }
   </style>
@@ -275,7 +303,9 @@
   </div>
 </div>
 
-<div style="display: none;" id="gallery">
+<div style="display: none;    background-image: url(/IMG/LAM_8221.JPG);
+background-repeat: no-repeat;
+background-size: auto;padding:25px" id="gallery">
   <button class="accordion">Engagement⬇️</button>
   <div class="panel">
     <div class="gallery-container">
@@ -515,13 +545,23 @@
 <label for="fileInput">Upload Images</label> -->
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
     var acc = document.getElementsByClassName("accordion");
     var i;
 
     for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
+      acc[i].addEventListener("click", function () {
         this.classList.toggle("active");
         var panel = this.nextElementSibling;
+
+        // Close other panels except the one clicked
+        for (var j = 0; j < acc.length; j++) {
+          if (acc[j] !== this) {
+            acc[j].classList.remove("active");
+            acc[j].nextElementSibling.style.display = "none";
+          }
+        }
+
         if (panel.style.display === "block") {
           panel.style.display = "none";
         } else {
@@ -529,6 +569,9 @@
         }
       });
     }
+
+    // Rest of your script...
+  });
 
     function openNav() {
       document.getElementById("myNav").style.width = "100%";
