@@ -14,10 +14,10 @@
     }
 
     header {
-      background-color: #333;
-      padding: 20px;
+      background-color: white;
+      padding: 6px;
       text-align: center;
-      color: white;
+      color: #333;
       font-size: 24px;
     }
 
@@ -30,6 +30,7 @@
     .slides {
       display: flex;
       transition: transform 0.5s ease-in-out;
+      padding:30px 0 30px 0;
     }
 
     .slide {
@@ -132,6 +133,57 @@
       border-radius: 5px;
       margin-top: 20px;
     }
+
+    .overlay {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0, 0.9);
+      overflow-x: hidden;
+      transition: 0.5s;
+    }
+
+    .overlay-content {
+      position: relative;
+      top: 25%;
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .overlay a {
+      padding: 8px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .overlay a:hover, .overlay a:focus {
+      color: #f1f1f1;
+    }
+
+    .overlay .closebtn {
+      position: absolute;
+      top: 20px;
+      right: 45px;
+      font-size: 60px;
+    }
+
+    @media screen and (max-height: 450px) {
+      .overlay a {font-size: 20px}
+      .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+      }
+    }
+
     @media screen and (max-width: 800px) {
       .column {
           -ms-flex: 50%;
@@ -152,9 +204,26 @@
 </head>
 <body>
 
-<header>#Priyrabh</header>
+<span style="font-size:25px;text-align: right; cursor:pointer;
+  font-size: 25px;
+  text-align: right;
+  cursor: pointer;
+  display: flow-root;
+  padding: 8px 8px 8px 8px;
+  background-image: url('/IMG/LAM_8221.JPG'); 
+  background-repeat: no-repeat;
+  background-size: auto;" onclick="openNav()">&#9776; open</span>
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="#" onclick="openHome()">Home</a>
+    <a href="#" onclick="openGallery()">Gallery</a>
+    <a href="#" onclick="openVideos()">Videos</a>
+    <a href="#">Upload</a>
+  </div>
+</div>
 
-<div class="slider-container">
+<div class="slider-container" id="slider">
   <div class="slides">
     <div class="slide">
       <img class="slider-image" src="/IMG/LAM_8221.JPG" alt="Image 1">
@@ -187,110 +256,118 @@
   </div>
 </div>
 
-<div class="galler-container">
-  <div class="gallery-item" onclick="openModal('/IMG/LAM_9771.JPG')">
-      <img src="/IMG/LAM_9771.JPG" alt="Image 4">
+<div style="display: none;" id="gallery">
+  <div class="gallery-container">
+    <div class="gallery-item" onclick="openModal('/IMG/LAM_9771.JPG')">
+        <img src="/IMG/LAM_9771.JPG" alt="Image 4">
+    </div>
+  </div>
+  
+  <div class="gallery-container">
+    <div class="gallery-column"><!-- Multiple -->
+      <div class="gallery-item" onclick="openModal('/IMG/LAM_8283.JPG')">
+        <img src="/IMG/LAM_8283.JPG" alt="Image 1">
+      </div>
+      <div class="gallery-item" onclick="openModal('/IMG/LAM_8296.JPG')">
+        <img src="/IMG/LAM_8296.JPG" alt="Image 2">
+      </div>
+    </div>
+    <div class="gallery-column"><!-- Multiple -->
+      <div class="gallery-item" onclick="openModal('/IMG/LAM_8321.JPG')">
+        <img src="/IMG/LAM_8321.JPG" alt="Image 3">
+      </div>
+      <div class="gallery-item" onclick="openModal('/IMG/LAM_8329.JPG')">
+        <img src="/IMG/LAM_8329.JPG" alt="Image 4">
+      </div>
+    </div>
+    <div class="gallery-column"><!-- Multiple -->
+      <div class="gallery-item" onclick="openModal('/IMG/LAM_8436.JPG')">
+        <img src="/IMG/LAM_8436.JPG" alt="Image 3">
+      </div>
+      <div class="gallery-item" onclick="openModal('/IMG/LAM_8424.JPG')">
+        <img src="/IMG/LAM_8424.JPG" alt="Image 4">
+      </div>
+    </div>
+    <div class="gallery-column"><!-- Single -->
+      <div class="gallery-item" onclick="openModal('/IMG/LAM_8406.JPG')">
+        <img src="/IMG/LAM_8406.JPG" alt="Image 3">
+      </div>
+    </div>
+    <!-- Add more gallery items as needed -->
+  </div>
+  
+  <div class="gallery-container">
+      <div class="gallery-column"><!-- Multiple -->
+          <div class="gallery-item" onclick="openModal('/IMG/LAM_8401.JPG')">
+            <img src="/IMG/LAM_8401.JPG" alt="Image 4">
+          </div>
+      </div>
+      <div class="gallery-column"><!-- Multiple -->
+          <div class="gallery-item" onclick="openModal('/IMG/LAM_8410.JPG')">
+            <img src="/IMG/LAM_8410.JPG" alt="Image 3">
+          </div>
+          <div class="gallery-item" onclick="openModal('/IMG/LAM_8421.JPG')">
+            <img src="/IMG/LAM_8421.JPG" alt="Image 4">
+          </div>
+      </div>
+      <div class="gallery-column"><!-- Multiple -->
+          <div class="gallery-item" onclick="openModal('/IMG/LAM_8439.JPG')">
+            <img src="/IMG/LAM_8439.JPG" alt="Image 3">
+          </div>
+          <!-- <div class="gallery-item" onclick="openModal('/IMG/LAM_8421.JPG')">
+            <img src="/IMG/LAM_8421.JPG" alt="Image 4">
+          </div> -->
+      </div>
+  </div>
+  
+  <div class="gallery-container">
+      <div class="gallery-column"><!-- Multiple -->
+          <div class="gallery-item" onclick="openModal('/IMG/LAM_8448.JPG')">
+            <img src="/IMG/LAM_8448.JPG" alt="Image 3">
+          </div>
+          <div class="gallery-item" onclick="openModal('/IMG/LAM_8462.JPG')">
+            <img src="/IMG/LAM_8462.JPG" alt="Image 4">
+          </div>
+      </div>
+      <div class="gallery-column"><!-- Multiple -->
+          <div class="gallery-item" onclick="openModal('/IMG/LAM_9599.JPG')">
+            <img src="/IMG/LAM_9599.JPG" alt="Image 3">
+          </div>
+          <div class="gallery-item" onclick="openModal('/IMG/LAM_8283.JPG')">
+            <img src="/IMG/LAM_8283.JPG" alt="Image 4">
+          </div>
+      </div>
+      <div class="gallery-column"><!-- Multiple -->
+          <div class="gallery-item" onclick="openModal('/IMG/LAM_8487.JPG')">
+            <img src="/IMG/LAM_8487.JPG" alt="Image 3">
+          </div>
+          <div class="gallery-item" onclick="openModal('/IMG/LAM_9610.JPG')">
+            <img src="/IMG/LAM_9610.JPG" alt="Image 4">
+          </div>
+      </div>
+  </div>
+  
+  <div class="gallery-container">
+      <div class="gallery-column"><!-- Multiple -->
+          <div class="gallery-item" onclick="openModal('/IMG/LAM_9718.JPG')">
+            <img src="/IMG/LAM_9718.JPG" alt="Image 3">
+          </div>
+      </div>
+      <div class="gallery-column"><!-- Multiple -->
+          <div class="gallery-item" onclick="openModal('/IMG/LAM_9795.JPG')">
+            <img src="/IMG/LAM_9795.JPG" alt="Image 3">
+          </div>
+          <div class="gallery-item" onclick="openModal('/IMG/LAM_9789.JPG')">
+            <img src="/IMG/LAM_9789.JPG" alt="Image 4">
+          </div>
+      </div>
   </div>
 </div>
 
-<div class="gallery-container">
-  <div class="gallery-column"><!-- Multiple -->
-    <div class="gallery-item" onclick="openModal('/IMG/LAM_8283.JPG')">
-      <img src="/IMG/LAM_8283.JPG" alt="Image 1">
-    </div>
-    <div class="gallery-item" onclick="openModal('/IMG/LAM_8296.JPG')">
-      <img src="/IMG/LAM_8296.JPG" alt="Image 2">
-    </div>
-  </div>
-  <div class="gallery-column"><!-- Multiple -->
-    <div class="gallery-item" onclick="openModal('/IMG/LAM_8321.JPG')">
-      <img src="/IMG/LAM_8321.JPG" alt="Image 3">
-    </div>
-    <div class="gallery-item" onclick="openModal('/IMG/LAM_8329.JPG')">
-      <img src="/IMG/LAM_8329.JPG" alt="Image 4">
-    </div>
-  </div>
-  <div class="gallery-column"><!-- Multiple -->
-    <div class="gallery-item" onclick="openModal('/IMG/LAM_8436.JPG')">
-      <img src="/IMG/LAM_8436.JPG" alt="Image 3">
-    </div>
-    <div class="gallery-item" onclick="openModal('/IMG/LAM_8424.JPG')">
-      <img src="/IMG/LAM_8424.JPG" alt="Image 4">
-    </div>
-  </div>
-  <div class="gallery-column"><!-- Single -->
-    <div class="gallery-item" onclick="openModal('/IMG/LAM_8406.JPG')">
-      <img src="/IMG/LAM_8406.JPG" alt="Image 3">
-    </div>
-  </div>
-  <!-- Add more gallery items as needed -->
-</div>
-
-<div class="gallery-container">
-    <div class="gallery-column"><!-- Multiple -->
-        <div class="gallery-item" onclick="openModal('/IMG/LAM_8401.JPG')">
-          <img src="/IMG/LAM_8401.JPG" alt="Image 4">
-        </div>
-    </div>
-    <div class="gallery-column"><!-- Multiple -->
-        <div class="gallery-item" onclick="openModal('/IMG/LAM_8410.JPG')">
-          <img src="/IMG/LAM_8410.JPG" alt="Image 3">
-        </div>
-        <div class="gallery-item" onclick="openModal('/IMG/LAM_8421.JPG')">
-          <img src="/IMG/LAM_8421.JPG" alt="Image 4">
-        </div>
-    </div>
-    <div class="gallery-column"><!-- Multiple -->
-        <div class="gallery-item" onclick="openModal('/IMG/LAM_8439.JPG')">
-          <img src="/IMG/LAM_8439.JPG" alt="Image 3">
-        </div>
-        <!-- <div class="gallery-item" onclick="openModal('/IMG/LAM_8421.JPG')">
-          <img src="/IMG/LAM_8421.JPG" alt="Image 4">
-        </div> -->
-    </div>
-</div>
-
-<div class="gallery-container">
-    <div class="gallery-column"><!-- Multiple -->
-        <div class="gallery-item" onclick="openModal('/IMG/LAM_8448.JPG')">
-          <img src="/IMG/LAM_8448.JPG" alt="Image 3">
-        </div>
-        <div class="gallery-item" onclick="openModal('/IMG/LAM_8462.JPG')">
-          <img src="/IMG/LAM_8462.JPG" alt="Image 4">
-        </div>
-    </div>
-    <div class="gallery-column"><!-- Multiple -->
-        <div class="gallery-item" onclick="openModal('/IMG/LAM_9599.JPG')">
-          <img src="/IMG/LAM_9599.JPG" alt="Image 3">
-        </div>
-        <div class="gallery-item" onclick="openModal('/IMG/LAM_8283.JPG')">
-          <img src="/IMG/LAM_8283.JPG" alt="Image 4">
-        </div>
-    </div>
-    <div class="gallery-column"><!-- Multiple -->
-        <div class="gallery-item" onclick="openModal('/IMG/LAM_8487.JPG')">
-          <img src="/IMG/LAM_8487.JPG" alt="Image 3">
-        </div>
-        <div class="gallery-item" onclick="openModal('/IMG/LAM_9610.JPG')">
-          <img src="/IMG/LAM_9610.JPG" alt="Image 4">
-        </div>
-    </div>
-</div>
-
-<div class="gallery-container">
-    <div class="gallery-column"><!-- Multiple -->
-        <div class="gallery-item" onclick="openModal('/IMG/LAM_9718.JPG')">
-          <img src="/IMG/LAM_9718.JPG" alt="Image 3">
-        </div>
-    </div>
-    <div class="gallery-column"><!-- Multiple -->
-        <div class="gallery-item" onclick="openModal('/IMG/LAM_9795.JPG')">
-          <img src="/IMG/LAM_9795.JPG" alt="Image 3">
-        </div>
-        <div class="gallery-item" onclick="openModal('/IMG/LAM_9789.JPG')">
-          <img src="/IMG/LAM_9789.JPG" alt="Image 4">
-        </div>
-    </div>
+<div style="display: none;" class="videos" id="videos">
+  <video width="100%" height="auto" controls>
+    <source src="/IMG/Pre Wedding Shoot 1-HD 1080p.mov" type="video/mp4">
+  </video>
 </div>
 
 <div id="myModal" class="modal">
@@ -302,30 +379,68 @@
 <label for="fileInput">Upload Images</label>
 
 <script>
+    function openNav() {
+      document.getElementById("myNav").style.width = "100%";
+    }
+
+    function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+    }
+    
+    function openHome() {
+      document.getElementById("myNav").style.width = "0%"
+      const galleryDiv = document.getElementById('gallery');
+      const sliderDiv = document.getElementById('slider');
+      const videosDiv = document.getElementById('videos');
+      sliderDiv.style.display = 'block';
+      galleryDiv.style.display = 'none';
+      videosDiv.style.display = 'none';
+    }
+
+    function openGallery() {
+      document.getElementById("myNav").style.width = "0%"
+      const galleryDiv = document.getElementById('gallery');
+      const sliderDiv = document.getElementById('slider');
+      const videosDiv = document.getElementById('videos');
+      galleryDiv.style.display = 'block';
+      sliderDiv.style.display = 'none';
+      videosDiv.style.display = 'none';
+    }
+
+    function openVideos() {
+      document.getElementById("myNav").style.width = "0%"
+      const galleryDiv = document.getElementById('gallery');
+      const sliderDiv = document.getElementById('slider');
+      const videosDiv = document.getElementById('videos');
+      galleryDiv.style.display = 'none';
+      sliderDiv.style.display = 'none';
+      videosDiv.style.display = 'block';
+    }
+
     let currentIndex = 0;
 
     function showSlide(index) {
-        const slides = document.querySelector('.slides');
-        const totalSlides = document.querySelectorAll('.slide').length;
+      const slides = document.querySelector('.slides');
+      const totalSlides = document.querySelectorAll('.slide').length;
 
-        if (index >= totalSlides) {
-        currentIndex = 0;
-        } else if (index < 0) {
-        currentIndex = totalSlides - 1;
-        } else {
-        currentIndex = index;
-        }
+      if (index >= totalSlides) {
+      currentIndex = 0;
+      } else if (index < 0) {
+      currentIndex = totalSlides - 1;
+      } else {
+      currentIndex = index;
+      }
 
-        const translateValue = -currentIndex * 100 + '%';
-        slides.style.transform = 'translateX(' + translateValue + ')';
+      const translateValue = -currentIndex * 100 + '%';
+      slides.style.transform = 'translateX(' + translateValue + ')';
     }
 
     function prevSlide() {
-        showSlide(currentIndex - 1);
+      showSlide(currentIndex - 1);
     }
 
     function nextSlide() {
-        showSlide(currentIndex + 1);
+      showSlide(currentIndex + 1);
     }
 
     // Auto slide every 3 seconds
@@ -334,9 +449,9 @@
     // Gallery zoom-in/zoom-out
     const galleryItems = document.querySelectorAll('.gallery-item');
     galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-        item.classList.toggle('zoomed');
-        });
+      item.addEventListener('click', () => {
+      item.classList.toggle('zoomed');
+      });
     });
 
     // Image upload functionality
@@ -344,26 +459,26 @@
     fileInput.addEventListener('change', handleFileSelect);
 
     function handleFileSelect(event) {
-        const files = event.target.files;
+      const files = event.target.files;
 
-        for (const file of files) {
+      for (const file of files) {
         const reader = new FileReader();
 
         reader.onload = function (e) {
-            const galleryItem = document.createElement('div');
-            galleryItem.classList.add('gallery-item');
+          const galleryItem = document.createElement('div');
+          galleryItem.classList.add('gallery-item');
 
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.alt = 'Uploaded Image';
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          img.alt = 'Uploaded Image';
 
-            galleryItem.appendChild(img);
-            galleryItem.addEventListener('click', () => openModal(img.src));
-            document.querySelector('.gallery-container').appendChild(galleryItem);
+          galleryItem.appendChild(img);
+          galleryItem.addEventListener('click', () => openModal(img.src));
+          document.querySelector('.gallery-container').appendChild(galleryItem);
         };
 
         reader.readAsDataURL(file);
-        }
+      }
     }
 
     /* function handleFileSelect(event) {
@@ -403,12 +518,12 @@
     const modalImg = document.getElementById('modalImage');
 
     function openModal(src) {
-        modal.style.display = 'flex';
-        modalImg.src = src;
+      modal.style.display = 'flex';
+      modalImg.src = src;
     }
 
     function closeModal() {
-        modal.style.display = 'none';
+      modal.style.display = 'none';
     }
 </script>
 
